@@ -51,3 +51,21 @@ soup = BeautifulSoup(html_doc, 'html.parser')
 # with open('modified.html', 'w') as f:
 #     f.write(str(soup))
 
+#THIS IS TO FIND IF THE ATTRIBUTE EXIST OR NOT
+# cont = soup.find(class_='container')
+# print(cont.has_attr('id'))
+# print(cont.has_attr('class'))
+
+# def has_no_class_but_not_id(tag):
+#     return not tag.has_attr('class') and not tag.has_attr('id')
+#find_all TAKES NOT ONLY ARGUMENTS BUT ALSO FUNCTIONS
+# results = soup.find_all(has_no_class_but_not_id)
+# for result in results:
+#     print(result, "\n\n")
+
+def has_content(tag):
+    return tag.has_attr('content')
+
+results = soup.find_all(has_content)
+for result in results:
+    print(result, '\n\n')
